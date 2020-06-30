@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
-const { Decimal128 } = require('mongodb')
+const { Decimal128, ObjectId } = require('mongodb')
 
 const order = mongoose.model('order', {
     date:{
@@ -36,6 +36,10 @@ const order = mongoose.model('order', {
     },
     settled:{
         type:Boolean,
+        required:true
+    },
+    category_id:{
+        type: ObjectId,
         required:true
     }
 })
