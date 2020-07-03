@@ -9,6 +9,12 @@ app.use(express.json())
 app.use(orderRouter)
 app.use(categoryRouter)
 
+app.get('', (req, res) => {
+    
+    res.send('a')
+
+})
+
 //const host = '127.0.0.1'
 const port = process.env.port || 3000
 
