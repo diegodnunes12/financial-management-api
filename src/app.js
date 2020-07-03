@@ -9,9 +9,9 @@ app.use(express.json())
 app.use(orderRouter)
 app.use(categoryRouter)
 
-const host = '127.0.0.1'
+//const host = '127.0.0.1'
 const port = process.env.port || 3000
 
-app.listen(port, host, () => {
-    console.log(`Server up at http:${host}:${port}`)
+app.listen(port, () => {
+    console.log(`Server up at port:${port}`)
 })
