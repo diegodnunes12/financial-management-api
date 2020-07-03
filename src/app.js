@@ -1,7 +1,7 @@
 const express = require('express')
 require('./db/mongoose')
 const orderRouter = require('./routes/order')
-const categoryRouter = require('./routes/category')
+const categoryRouter = require('routes/category')
 
 const app = express()
 
