@@ -1,5 +1,5 @@
 const express = require('express')
-const mongoose = require('./db/mongoose')
+require('./db/mongoose')
 const orderRouter = require('./routes/order')
 const categoryRouter = require('./routes/category')
 
