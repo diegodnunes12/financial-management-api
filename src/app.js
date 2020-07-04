@@ -1,9 +1,11 @@
 const express = require('express')
-require('./db/mongoose')
+const mongoose = require('./db/mongoose')
 const orderRouter = require('./routes/order')
 const categoryRouter = require('./routes/category')
 
 const app = express()
+
+mongoose.set('useUnifiedTopology', true);
 
 app.use(express.json())
 app.use(orderRouter)
