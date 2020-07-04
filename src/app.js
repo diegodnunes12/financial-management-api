@@ -5,8 +5,6 @@ const categoryRouter = require('./routes/category')
 
 const app = express()
 
-mongoose.set('useUnifiedTopology', true);
-
 app.use(express.json())
 app.use(orderRouter)
 app.use(categoryRouter)
