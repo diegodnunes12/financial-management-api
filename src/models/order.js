@@ -40,7 +40,10 @@ const order = mongoose.model('order', {
     },
     category_id:{
         type: ObjectId,
+        ref: "category",
         required:true
+        /* type: ObjectId,
+        required:true */
     }
 })
 
