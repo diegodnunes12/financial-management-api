@@ -1,8 +1,12 @@
-const mongoose = require('mongoose')
+var mongoose = require("mongoose")
 const validator = require('validator')
 const { Decimal128, ObjectId } = require('mongodb')
 
-const order = mongoose.model('order', {
+// Get the Schema constructor
+var Schema = mongoose.Schema;
+
+// Using Schema constructor, create a ProductSchema
+var orderSchema = new Schema({
     date:{
         type: Date,
         required: true,
@@ -38,13 +42,15 @@ const order = mongoose.model('order', {
         type:Boolean,
         required:true
     },
-    category_id:{
-        type: ObjectId,
+    category:{
+        type: Schema.Types.ObjectId,
         ref: "category",
         required:true
-        /* type: ObjectId,
-        required:true */
     }
 })
 
-module.exports = order
+// Create model from the schema
+var order = mongoose.model("order", orderSchema);
+
+// Export model
+module.exports = order;

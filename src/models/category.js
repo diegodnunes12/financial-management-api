@@ -1,6 +1,10 @@
-const mongoose = require('mongoose')
+var mongoose = require("mongoose")
 
-const category = mongoose.model('category', {
+// Get the Schema constructor
+var Schema = mongoose.Schema
+
+// Using Schema constructor, create a ProductSchema
+var CategorySchema = new Schema({
     name:{
         type:String,
         required:true,
@@ -8,4 +12,8 @@ const category = mongoose.model('category', {
     }
 })
 
-module.exports = category
+// Create model from the schema
+var category = mongoose.model("category", CategorySchema);
+
+// Export model
+module.exports = category;

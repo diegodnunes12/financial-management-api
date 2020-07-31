@@ -15,15 +15,6 @@ router.post('/orders', async (req, res) => {
 
 router.get('/orders', async (req, res) => {
     try {
-        const getOrders = await order.find({})
-        res.status(200).send(getOrders)
-    } catch (error) {
-        res.status(500).send(error)
-    }
-})
-
-router.get('/orders2', async (req, res) => {
-    try {
         const getOrders = await order.find({}).populate("category")
         res.status(200).send(getOrders)
     } catch (error) {
@@ -31,20 +22,10 @@ router.get('/orders2', async (req, res) => {
     }
 })
 
-router.get("/orders2/:id", async (req, res) => {
-    try {
-        const getOrders = await order.findById(_id).populate("category")
-        res.status(200).send(getOrders)
-    } catch (error) {
-        res.status(500).send(error)
-    }
-    
-});
-
 router.get('/orders/:id', async (req, res) => {
     const _id = req.params.id
     try {
-        const getOrder = await order.findById(_id)
+        const getOrder = await order.findById(_id).populate("category")
         if(!getOrder){
             res.status(404).send('Lançamento não encontrado')
         }
